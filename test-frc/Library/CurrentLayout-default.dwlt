@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 989
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -113,10 +113,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 939
-  m_MinSize: {x: 676, y: 321}
-  m_MaxSize: {x: 18002, y: 14021}
+  m_MinSize: {x: 679, y: 342}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 76
+  controlID: 65
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -162,14 +162,14 @@ MonoBehaviour:
     y: 0
     width: 862
     height: 939
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 13}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
   - {fileID: 13}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -191,10 +191,10 @@ MonoBehaviour:
     y: 0
     width: 655
     height: 939
-  m_MinSize: {x: 275, y: 321}
-  m_MaxSize: {x: 10001, y: 14021}
+  m_MinSize: {x: 276, y: 342}
+  m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 77
+  controlID: 17
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -214,8 +214,8 @@ MonoBehaviour:
     y: 0
     width: 655
     height: 467
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -277,23 +277,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c8d7ffff
-      m_LastClickedID: -10296
-      m_ExpandedIDs: 50ceffffa8cfffff94d1ffff9ad1ffff64fbffff943c0000b03c0000ca3c0000e23c0000
+      m_SelectedIDs: c03e0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 64fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: player 3D
-        m_OriginalName: player 3D
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 15452
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 6}
       m_SearchString: 
@@ -339,9 +339,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.2783782, y: 0.40904948, z: 2.759206}
+    m_Target: {x: 2.9561474, y: 0.066628575, z: 2.6358666}
     speed: 2
-    m_Value: {x: 3.2783782, y: 0.40904948, z: 2.759206}
+    m_Value: {x: 2.9561474, y: 0.066628575, z: 2.6358666}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -387,9 +387,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.081786126, y: -0.022736458, z: 0.0018743104, w: 0.99640065}
+    m_Target: {x: 0.15698367, y: -0.09643669, z: 0.015412889, w: 0.98277295}
     speed: 2
-    m_Value: {x: 0.08178516, y: -0.02273619, z: 0.0018742883, w: 0.9963889}
+    m_Value: {x: 0.1630128, y: -0.08750131, z: 0.014524553, w: 0.9826288}
   m_Size:
     m_Target: 1.1532224
     speed: 2
@@ -587,20 +587,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/sky5X/sky5X_skyboxes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/sky5X/sky5X_skyboxes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\patat\OneDrive\Belgeler\GitHub\Valkyrie-Fll-Projesi\test-frc
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 443d0000
-    m_LastClickedID: 15684
-    m_ExpandedIDs: 00000000383d00003e4600004246000000ca9a3bffffff7f
+    m_SelectedIDs: c03e0000
+    m_LastClickedID: 16064
+    m_ExpandedIDs: 000000009c3e0000aa3e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -628,7 +628,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000383d0000
+    m_ExpandedIDs: 000000009c3e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
