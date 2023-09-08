@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class kazandin : MonoBehaviour
 {
@@ -12,13 +13,15 @@ public class kazandin : MonoBehaviour
     {
         Kazandin.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 	
+	public void Sonraki(){
+		SceneManager.LoadScene(2);
+	}
+	
+	public void AnaMenu(){
+		SceneManager.LoadScene(0);
+	}	
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.tag == "Player")
