@@ -23,6 +23,7 @@ public class Controller : MonoBehaviour
     public GameObject mainTarget; //target object of the code is for
     List<Function_> sequence; //list of functions (type Functions_). The code sequence is read from here
     private int isPlaying; 
+	public float rotationSpeed = 100.0f;
     
     MainLoop loop1;
     
@@ -50,6 +51,9 @@ public class Controller : MonoBehaviour
     
     void Update()
     {
+		float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+		
         if (isPlaying == 2) //play
         {
             loop1.infiniteLoop = transform.GetChild(1).GetComponent<Toggle>().isOn;
@@ -85,11 +89,17 @@ public class Controller : MonoBehaviour
                     case "MoveLeft":
                         sequence_.Add(new MoveLeft("MoveLeft"));
                         break;
+					case "Move":
+                        sequence_.Add(new Move("Move"));
+                        break;
                     case "MoveUp":
                         sequence_.Add(new MoveUp("MoveUp"));
                         break;
                     case "MoveDown":
                         sequence_.Add(new MoveDown("MoveDown"));
+                        break;
+                    case "Spin":
+                        sequence_.Add(new Spin("Spin"));
                         break;
                     case "Jump":
                         sequence_.Add(new Jump("Jump"));
@@ -168,6 +178,37 @@ public class MoveDown : Function_
     override public void Func(GameObject mainTarget)
     {
         mainTarget.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -300));
+    }
+}
+
+public class Spin : Function_
+{
+    public Spin(string ID) : base(ID)
+    {
+        this.ID = ID;
+    }
+
+    override public void Func(GameObject mainTarget)
+    {
+        // Küpü 90 derece döndürme
+		mainTarget.transform.Rotate(0, 90, 0);
+    }
+}
+
+public class Move : Function_
+{
+    public Move(string ID) : base(ID)
+    {
+        this.ID = ID;
+    }
+
+    override public void Func(GameObject mainTarget)
+    {
+        // Küpün baktığı yöne gitmesini sağlar
+        Vector3 moveDirection = mainTarget.transform.forward;
+        float moveSpeed = 6.0f; // Hareket hızını ayarlayabilirsiniz
+        mainTarget.GetComponent<Rigidbody>().velocity = moveDirection * moveSpeed;
+		Debug.Log("Nesnenin Yönü: " + mainTarget.transform.forward);
     }
 }
 
