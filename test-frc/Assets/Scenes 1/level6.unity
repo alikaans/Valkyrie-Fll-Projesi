@@ -4664,13 +4664,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320828523}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03f76ecac5c541e4783c70e8b5691cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainTarget: {fileID: 877156449}
   rotationSpeed: 100
+  targetMaterial: {fileID: 0}
+  targetMaterialrenk: {fileID: 0}
+  ikibes: {fileID: 0}
+  bes: {fileID: 0}
+  yedibes: {fileID: 0}
+  yuz: {fileID: 0}
+  inputField: {fileID: 0}
+  Kazandin: {fileID: 0}
+  resim: {fileID: 0}
 --- !u!1001 &1367868626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5414,7 +5423,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1320828531}
+      objectReference: {fileID: 2075579429}
     - target: {fileID: 4094109699187983244, guid: 32b195a800de3314399fc8ff475a1d5e,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -6164,6 +6173,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTarget: {fileID: 877156449}
   rotationSpeed: 100
+  targetMaterial: {fileID: 0}
+  targetMaterialrenk: {fileID: 0}
+  ikibes: {fileID: 0}
+  bes: {fileID: 0}
+  yedibes: {fileID: 0}
+  yuz: {fileID: 0}
+  inputField: {fileID: 0}
+  Kazandin: {fileID: 0}
+  resim: {fileID: 0}
 --- !u!114 &2079777952 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5797021234942890554, guid: 890315873a5b70d44ad497d2b27da7db,

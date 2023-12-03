@@ -641,8 +641,6 @@ public class Move2 : Function_
 	
 }
 
-
-
 public class Function_
 {
     public string ID;
