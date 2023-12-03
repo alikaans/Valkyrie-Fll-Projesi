@@ -7,15 +7,17 @@ public class kaybettin : MonoBehaviour
 {
 	
 	public GameObject Kaybettin;
+	int sahne;
 	
     // Start is called before the first frame update
     void Start()
     {
+		int sahne = SceneManager.GetActiveScene().buildIndex;
         Kaybettin.SetActive(false);
     }
 	
 	public void Tekrar(){
-		SceneManager.LoadScene(2);
+		SceneManager.LoadScene(sahne);
 	}
 	
 	public void AnaMenu(){

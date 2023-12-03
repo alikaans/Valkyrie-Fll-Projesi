@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - yildiz
+  - ultrasonic0
+  - ultrasonic1
+  - duvar
   layers:
   - Default
   - TransparentFX
