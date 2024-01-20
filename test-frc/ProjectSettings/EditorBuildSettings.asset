@@ -21,18 +21,15 @@ EditorBuildSettings:
     path: Assets/Scenes 1/level4.unity
     guid: b86f3737a22fb4d4fbd0c283c7d26df8
   - enabled: 1
-    path: Assets/Scenes 1/silindi.unity
-    guid: 1cf0e1fd4c8f9a14b85223a9ab972c3d
-  - enabled: 1
     path: Assets/Scenes 1/level6.unity
     guid: 4017aa52541ed2347bcb5ef676d01fe7
   - enabled: 1
-    path: Assets/Scenes 1/silindi2.unity
-    guid: a8af368d37993934690835d484c4a68c
+    path: Assets/Scenes 1/level7.unity
+    guid: 643beb0ef7f561144902236025877505
   - enabled: 1
     path: Assets/Scenes 1/level8.unity
     guid: aaf14d4237104534d98b95e3c539bef9
   - enabled: 1
-    path: Assets/Scenes 1/silindi3.unity
-    guid: c1d3e455af68e3e4f868efd2f3606461
+    path: Assets/Scenes 1/level9.unity
+    guid: fcdd6aee52a1a9846ad3e8a4743542a7
   m_configObjects: {}

@@ -7,28 +7,24 @@ public class Drapdown : MonoBehaviour
 {
 	int deger=0;
 	public GameObject sensor;
-	public GameObject teker;
-	public GameObject aa;
-	public GameObject bosluk1;
-	public GameObject bosluk2;
-	public GameObject bosluk3;
-	public GameObject gyro;
-	public GameObject tekerfoto1;
-	public GameObject aafoto1;
+	public GameObject gyro1;
+	public GameObject ultra;
+	public GameObject dokunma1;
+	public GameObject isik1;
 	
 	void Start()
 	{
 		if(PlayerPrefs.GetInt("gyro")==1){
-			bosluk2.SetActive(false);
-			gyro.SetActive(true);
+			gyro1.SetActive(true);
 		}
-		if(PlayerPrefs.GetInt("ultrasonik")==1){
-			bosluk1.SetActive(false);
-			tekerfoto1.SetActive(true);
+		if(PlayerPrefs.GetInt("isik")==1){
+			isik1.SetActive(true);
 		}
 		if(PlayerPrefs.GetInt("dokunma")==1){
-			bosluk3.SetActive(false);
-			aafoto1.SetActive(true);
+			dokunma1.SetActive(true);
+		}
+		if(PlayerPrefs.GetInt("ultrasonik")==1){
+			ultra.SetActive(true);
 		}
 	}
 	
@@ -37,48 +33,45 @@ public class Drapdown : MonoBehaviour
 		if(val==0)
 		{
 			sensor.SetActive(true);
-			teker.SetActive(false);
-			aa.SetActive(false);
 			Debug.Log("0");
 		}
 		if(val==1)
 		{
 			sensor.SetActive(false);
-			teker.SetActive(true);
-			aa.SetActive(false);
 			Debug.Log("1");
 		}
 		if(val==2)
 		{
 			sensor.SetActive(false);
-			teker.SetActive(false);
-			aa.SetActive(true);
 			Debug.Log("2");
 			
 		}
 	}
 	
-	public void butonmotor1(){
-		bosluk2.SetActive(false);
-		gyro.SetActive(true);
+	public void gyro(){
+		gyro1.SetActive(true);
 		Debug.Log("Gyro takıldı");
 		PlayerPrefs.SetInt("gyro",1);
 	}
 	
 
-	public void butonteker1(){
-		bosluk1.SetActive(false);
-		tekerfoto1.SetActive(true);
+	public void ultrasonic(){
+		ultra.SetActive(true);
 		Debug.Log("Ultrasonik takıldı");
 		PlayerPrefs.SetInt("ultrasonik",1);
 	}
 
 
-	public void butonaa1(){
-		bosluk3.SetActive(false);
-		aafoto1.SetActive(true);
+	public void dokunma(){
+		dokunma1.SetActive(true);
 		Debug.Log("Dokunma sensör takıldı");
 		PlayerPrefs.SetInt("dokunma",1);
+	}
+	
+	public void isik(){
+		isik1.SetActive(true);
+		Debug.Log("isik sensör takıldı");
+		PlayerPrefs.SetInt("isik",1);
 	}
 	
 

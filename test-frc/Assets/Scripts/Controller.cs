@@ -1,28 +1,14 @@
-﻿//----------------------------------
-// Version 1.0 (Sample)
-//----------------------------------
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-//The code implements a controller for a sequence of functions using the theory of machine language and
-// its way to arrange functions to be run in a organized sequence. It run thought a list and base on the function list.
-// The objective is to induce the player to use a Drag and Drop Visual programming interface to write its own code to
-// interact with the game or parts of the game.
-// This is a sample of a bigger project being developed with loops/conditions, functions with variables and a simple
-// textual programming language enable the translation between Visual (blocks) and Textual coding.
-// 
-//#Visual Block Coding:
-// drag and drop from (https://github.com/danielcmcg/Unity-UI-Nested-Drag-and-Drop) functinos to the desired positions
-// on the main loop of the object
 
 public class Controller : MonoBehaviour
 {
 	
     public delegate void FuntionsList();
-    public GameObject mainTarget; //target object of the code is for
-    List<Function_> sequence; //list of functions (type Functions_). The code sequence is read from here
+    public GameObject mainTarget;
+    List<Function_> sequence;
     private int isPlaying; 
 	public float rotationSpeed = 100.0f;
 	public Material targetMaterial;
@@ -56,6 +42,9 @@ public class Controller : MonoBehaviour
     {
         isPlaying = 1; 
     }
+	public void Tamam1(){
+		Kazandin.SetActive(true);
+	}
 
     void Start()
     {
@@ -65,6 +54,7 @@ public class Controller : MonoBehaviour
 		PlayerPrefs.SetInt("ultrablock",0);
 		PlayerPrefs.SetInt("ultrayon",0);
 		PlayerPrefs.SetInt("siddetleri",0);
+		PlayerPrefs.SetInt("dokundu",0);
 		
         isPlaying = 0; 
         sequence = new List<Function_>();
@@ -100,7 +90,7 @@ public class Controller : MonoBehaviour
 		
 		if (int.TryParse(randomElement, out int parsedValue))
         {
-            PlayerPrefs.SetInt("isik", parsedValue);
+            PlayerPrefs.SetInt("isiksiddeti", parsedValue);
             Debug.Log("Rastgele Sayı PlayerPrefs'e Kaydedildi: " + parsedValue);
         }
 		//-------------Işık_Son------------//
@@ -220,6 +210,70 @@ public class Controller : MonoBehaviour
 		Debug.Log(PlayerPrefs.GetInt("move2"));
 	}
 	
+	public void HandleInputData2(int val)
+	{
+		if(val==0)
+		{
+			Debug.Log("1 block ilerle3");
+		}
+		if(val==1)
+		{
+			Debug.Log("2 block ilerle3");
+		}
+		if(val==2)
+		{
+			Debug.Log("3 block ilerle3");
+		}
+		PlayerPrefs.SetInt("move3",val);
+		Debug.Log(PlayerPrefs.GetInt("move3"));
+	}
+
+	public void HandleInputData3(int val)
+	{
+		if(val==0)
+		{
+			Debug.Log("1 block ilerle3");
+		}
+		if(val==1)
+		{
+			Debug.Log("2 block ilerle3");
+		}
+		if(val==2)
+		{
+			Debug.Log("3 block ilerle3");
+		}
+		PlayerPrefs.SetInt("move4",val);
+		Debug.Log(PlayerPrefs.GetInt("move4"));
+	}
+
+	public void HandleInputDataSpin(int val)
+	{
+		if(val==0)
+		{
+			Debug.Log("sağ");
+		}
+		if(val==1)
+		{
+			Debug.Log("sol");
+		}
+		PlayerPrefs.SetInt("gyroyon",val);
+		Debug.Log(PlayerPrefs.GetInt("gyroyon"));
+	}
+
+	public void HandleInputDataSpin1(int val)
+	{
+		if(val==0)
+		{
+			Debug.Log("sağ");
+		}
+		if(val==1)
+		{
+			Debug.Log("sol");
+		}
+		PlayerPrefs.SetInt("gyroyon1",val);
+		Debug.Log(PlayerPrefs.GetInt("gyroyon1"));
+	}
+	
 	public void HandleInputDataUltrasonicBlock(int val)
 	{
 		if(val==0)
@@ -289,6 +343,34 @@ public class Controller : MonoBehaviour
 		PlayerPrefs.SetInt("renkyon",val);
 		Debug.Log(PlayerPrefs.GetInt("renkyon"));
 	}
+	
+	public void HandleInputDataCubukYon1(int val)
+	{
+		if(val==0)
+		{
+			Debug.Log("sol");
+		}
+		if(val==1)
+		{
+			Debug.Log("sağ");
+		}
+		PlayerPrefs.SetInt("cubukyon1",val);
+		Debug.Log(PlayerPrefs.GetInt("cubukyon1"));
+	}
+
+	public void HandleInputDataCubukYon2(int val)
+	{
+		if(val==0)
+		{
+			Debug.Log("sol");
+		}
+		if(val==1)
+		{
+			Debug.Log("sağ");
+		}
+		PlayerPrefs.SetInt("cubukyon2",val);
+		Debug.Log(PlayerPrefs.GetInt("cubukyon2"));
+	}
     
     //recursive parser function
     private List<Function_> TranslateCodeFromBlocks(Transform parent, List<Function_> sequence_)
@@ -335,8 +417,48 @@ public class Controller : MonoBehaviour
 							sequence_.Add(new Move2("Move2"));
 						}
                         break;
-                    case "Spin":
-                        sequence_.Add(new Spin("Spin"));
+					case "Move3":
+                        sequence_.Add(new Move3("Move3"));
+						if(PlayerPrefs.GetInt("move3")==1){
+							sequence_.Add(new Move3("Move3"));
+							Debug.Log("2İlerleniyor..");
+						}
+						if(PlayerPrefs.GetInt("move3")==2){
+							sequence_.Add(new Move3("Move3"));
+							sequence_.Add(new Move3("Move3"));
+							Debug.Log("3İlerleniyor..");
+						}
+						if(PlayerPrefs.GetInt("move3")==3){
+							sequence_.Add(new Move3("Move3"));
+							sequence_.Add(new Move3("Move3"));
+							sequence_.Add(new Move3("Move3"));
+						}
+                        break;
+					case "Move4":
+                        sequence_.Add(new Move4("Move4"));
+						if(PlayerPrefs.GetInt("move4")==1){
+							sequence_.Add(new Move4("Move4"));
+							Debug.Log("2İlerleniyor..");
+						}
+						if(PlayerPrefs.GetInt("move4")==2){
+							sequence_.Add(new Move4("Move4"));
+							sequence_.Add(new Move4("Move4"));
+							Debug.Log("4İlerleniyor..");
+						}
+						if(PlayerPrefs.GetInt("move4")==3){
+							sequence_.Add(new Move4("Move4"));
+							sequence_.Add(new Move4("Move4"));
+							sequence_.Add(new Move4("Move4"));
+						}
+                        break;
+					case "IsikSiddeti1":
+						sequence_.Add(new IsikSiddeti1("IsikSiddeti1"));
+                        break;
+                    case "spin1":
+                        sequence_.Add(new spin1("spin1"));
+                        break;
+                    case "spin2":
+                        sequence_.Add(new spin2("spin2"));
                         break;
 					case "ultra":
                         sequence_.Add(new ultra("ultra"));
@@ -344,12 +466,12 @@ public class Controller : MonoBehaviour
 					case "dokunma":
                         sequence_.Add(new dokunma("dokunma"));
                         break;
-					case "IsikSiddeti":
-                        sequence_.Add(new IsikSiddeti("IsikSiddeti"));
-                        break;
 					case "Renk":
                         sequence_.Add(new Renk("Renk"));
                         break;
+					case "cubuk":
+						sequence_.Add(new cubuk("cubuk"));
+						break;
                 }
             }
         }
@@ -388,9 +510,9 @@ public class MainLoop
     
 }
 
-public class Spin : Function_
+public class spin1 : Function_
 {
-    public Spin(string ID) : base(ID)
+    public spin1(string ID) : base(ID)
     {
         this.ID = ID;
     }
@@ -405,8 +527,42 @@ public class Spin : Function_
 			if(PlayerPrefs.GetInt("gyroyon")==0)
 			{
 				mainTarget.transform.Rotate(0, 90, 0);
+				Debug.Log("90");
 			}
 			if(PlayerPrefs.GetInt("gyroyon")==1)
+			{
+				mainTarget.transform.Rotate(0, -90, 0);
+				Debug.Log("90");
+			}
+			// Küpü 90 derece döndürme
+			//mainTarget.transform.Rotate(0, 90, 0);
+		}
+		else
+		{
+			Debug.Log("Gyro Takılı Değil");
+		}
+    }
+}
+
+public class spin2 : Function_
+{
+    public spin2(string ID) : base(ID)
+    {
+        this.ID = ID;
+    }
+
+    override public void Func(GameObject mainTarget)
+    {
+		
+		Debug.Log(PlayerPrefs.GetInt("gyro"));
+		if(PlayerPrefs.GetInt("gyro")==1)
+		{
+			Debug.Log("gyro takılı");
+			if(PlayerPrefs.GetInt("gyroyon1")==0)
+			{
+				mainTarget.transform.Rotate(0, 90, 0);
+			}
+			if(PlayerPrefs.GetInt("gyroyon1")==1)
 			{
 				mainTarget.transform.Rotate(0, -90, 0);
 			}
@@ -436,15 +592,29 @@ public class ultra : Function_
 			Debug.Log("ultrasonik takılı");
 			if(PlayerPrefs.GetInt("ultrakarsi")==1)
 			{
-				if(PlayerPrefs.GetInt("ultrayon")==0)
+				if(PlayerPrefs.GetInt("ultrasonicYakinlik")==1)
 				{
-					mainTarget.transform.Rotate(0,-90, 0);
+					if(PlayerPrefs.GetInt("ultrayon")==0)
+					{
+						mainTarget.transform.Rotate(0,-90, 0);
+					}
+					if(PlayerPrefs.GetInt("ultrayon")==1)
+					{
+						mainTarget.transform.Rotate(0,90, 0);
+					}					
 				}
-				if(PlayerPrefs.GetInt("ultrayon")==1)
+				if(PlayerPrefs.GetInt("ultrasonicYakinlik")==2)
 				{
-					mainTarget.transform.Rotate(0,90, 0);
+					if(PlayerPrefs.GetInt("ultrayon")==0)
+					{
+						mainTarget.transform.Rotate(0,-90, 0);
+					}
+					if(PlayerPrefs.GetInt("ultrayon")==1)
+					{
+						mainTarget.transform.Rotate(0,90, 0);
+					}					
 				}
-			}
+			}			
 			// Küpü 90 derece döndürme
 			//mainTarget.transform.Rotate(0, 90, 0);
 		}
@@ -455,10 +625,10 @@ public class ultra : Function_
     }
 }
 
-public class IsikSiddeti : Function_
+public class IsikSiddeti1 : Function_
 {
 	
-    public IsikSiddeti(string ID) : base(ID)
+    public IsikSiddeti1(string ID) : base(ID)
     {
         this.ID = ID;
     }
@@ -467,32 +637,32 @@ public class IsikSiddeti : Function_
     {
 			
 		Debug.Log(PlayerPrefs.GetInt("isik"));
-		if(1==1)
+		if(PlayerPrefs.GetInt("isik")==1)
 		{
 			Debug.Log("ışık sensörü takılı");
-			if(PlayerPrefs.GetInt("isik")==0)
+			if(PlayerPrefs.GetInt("isiksiddeti")==0)
 			{
 				Debug.Log("HATA");
 			}
-			if(PlayerPrefs.GetInt("isik")==25)
+			if(PlayerPrefs.GetInt("isiksiddeti")==25)
 			{
 				Debug.Log("25de");
 				//ikibes.SetActive(true);
 				PlayerPrefs.SetInt("siddetleri",25);
 			}
-			if(PlayerPrefs.GetInt("isik")==50)
+			if(PlayerPrefs.GetInt("isiksiddeti")==50)
 			{
 				Debug.Log("50de");
 				//bes.SetActive(true);
 				PlayerPrefs.SetInt("siddetleri",50);
 			}
-			if(PlayerPrefs.GetInt("isik")==75)
+			if(PlayerPrefs.GetInt("isiksiddeti")==75)
 			{
 				Debug.Log("75de");
 				//yedibes.SetActive(true);
 				PlayerPrefs.SetInt("siddetleri",75);
 			}
-			if(PlayerPrefs.GetInt("isik")==100)
+			if(PlayerPrefs.GetInt("isiksiddeti")==100)
 			{
 				Debug.Log("100de");
 				//yuz.SetActive(true);
@@ -518,7 +688,7 @@ public class Renk : Function_
     {
 			
 		Debug.Log(PlayerPrefs.GetInt("renk"));
-		if(1==1)
+		if(PlayerPrefs.GetInt("renk")==1)
 		{
 			Debug.Log("renk sensörü takılı");
 			if(PlayerPrefs.GetInt("rengi")==PlayerPrefs.GetInt("renksecimi"))
@@ -582,6 +752,30 @@ public class dokunma : Function_
     }
 }
 
+public class cubuk : Function_
+{
+    public cubuk(string ID) : base(ID)
+    {
+        this.ID = ID;
+    }
+
+    override public void Func(GameObject mainTarget)
+    {
+		
+		Debug.Log(PlayerPrefs.GetInt("cubuk"));
+		if(PlayerPrefs.GetInt("cubuk")==1)
+		{
+			Debug.Log("cubuk takılı");
+			
+		}
+		else
+		{
+			Debug.Log("cubuk sensörü Takılı Değil");
+		}
+    }
+}
+
+
 	
 public class Move1 : Function_
 {
@@ -641,11 +835,128 @@ public class Move2 : Function_
 	
 }
 
+public class Move3 : Function_
+{
+    public Move3(string ID) : base(ID)
+    {
+        this.ID = ID;
+		Debug.Log(ID);
+    }
+
+    override public void Func(GameObject mainTarget)
+    {
+		
+		int kac = PlayerPrefs.GetInt("move3");
+		/*if(kac == 0 && PlayerPrefs.GetInt("gitti") != 1)
+		{
+			Vector3 moveDirection = mainTarget.transform.forward;
+			float moveSpeed = 6.0f; // Hareket hızını ayarlayabilirsiniz
+			mainTarget.GetComponent<Rigidbody>().velocity = moveDirection * moveSpeed;
+			Debug.Log("Nesnenin Yönü: " + mainTarget.transform.forward);
+			//PlayerPrefs.SetInt("gitti",1);
+		}*/
+		Vector3 moveDirection = mainTarget.transform.forward;
+		float moveSpeed = 6.0f; // Hareket hızını ayarlayabilirsiniz
+		mainTarget.GetComponent<Rigidbody>().velocity = moveDirection * moveSpeed;
+		Debug.Log("Nesnenin Yönü: " + mainTarget.transform.forward);
+		Debug.Log(mainTarget.gameObject.tag);
+    }
+	
+}
+
+public class Move4 : Function_
+{
+    public Move4(string ID) : base(ID)
+    {
+        this.ID = ID;
+		Debug.Log(ID);
+    }
+
+    override public void Func(GameObject mainTarget)
+    {
+		
+		int kac = PlayerPrefs.GetInt("move4");
+		/*if(kac == 0 && PlayerPrefs.GetInt("gitti") != 1)
+		{
+			Vector3 moveDirection = mainTarget.transform.forward;
+			float moveSpeed = 6.0f; // Hareket hızını ayarlayabilirsiniz
+			mainTarget.GetComponent<Rigidbody>().velocity = moveDirection * moveSpeed;
+			Debug.Log("Nesnenin Yönü: " + mainTarget.transform.forward);
+			//PlayerPrefs.SetInt("gitti",1);
+		}*/
+		Vector3 moveDirection = mainTarget.transform.forward;
+		float moveSpeed = 6.0f; // Hareket hızını ayarlayabilirsiniz
+		mainTarget.GetComponent<Rigidbody>().velocity = moveDirection * moveSpeed;
+		Debug.Log("Nesnenin Yönü: " + mainTarget.transform.forward);
+		Debug.Log(mainTarget.gameObject.tag);
+    }
+	
+}
+
+public class Move5 : Function_
+{
+    public Move5(string ID) : base(ID)
+    {
+        this.ID = ID;
+		Debug.Log(ID);
+    }
+
+    override public void Func(GameObject mainTarget)
+    {
+		
+		/*if(kac == 0 && PlayerPrefs.GetInt("gitti") != 1)
+		{
+			Vector3 moveDirection = mainTarget.transform.forward;
+			float moveSpeed = 6.0f; // Hareket hızını ayarlayabilirsiniz
+			mainTarget.GetComponent<Rigidbody>().velocity = moveDirection * moveSpeed;
+			Debug.Log("Nesnenin Yönü: " + mainTarget.transform.forward);
+			//PlayerPrefs.SetInt("gitti",1);
+		}*/
+		Vector3 moveDirection = mainTarget.transform.forward;
+		float moveSpeed = 6.0f; // Hareket hızını ayarlayabilirsiniz
+		mainTarget.GetComponent<Rigidbody>().velocity = moveDirection * moveSpeed;
+		Debug.Log("Nesnenin Yönü: " + mainTarget.transform.forward);
+		Debug.Log(mainTarget.gameObject.tag);
+    }
+	
+}
+//test kodları
+public class Sol : Function_
+{
+    public Sol(string ID) : base(ID)
+    {
+        this.ID = ID;
+		Debug.Log(ID);
+    }
+
+    override public void Func(GameObject mainTarget)
+    {
+		
+		mainTarget.transform.Rotate(0, 90, 0);
+    }
+	
+}
+
+public class Sag : Function_
+{
+    public Sag(string ID) : base(ID)
+    {
+        this.ID = ID;
+		Debug.Log(ID);
+    }
+
+    override public void Func(GameObject mainTarget)
+    {
+		
+		mainTarget.transform.Rotate(0, -90, 0);
+    }
+	
+}
+
 public class Function_
 {
     public string ID;
 
-    //contructor for sinple functions
     public Function_(string ID)
     {
         this.ID = ID;

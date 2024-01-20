@@ -11,11 +11,13 @@ public class kazandin : MonoBehaviour
 	public Image resim;
 	public Image resim2;
 	int yildiz;
+	int currentSceneIndex;
 	
 	void Update()
 	{
 		yildiz = PlayerPrefs.GetInt("yildiz");
 		//Debug.Log(yildiz);
+		currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 	}
 	
     void Start()
@@ -23,11 +25,12 @@ public class kazandin : MonoBehaviour
 		//PlayerPrefs.DeleteKey("yildiz");
         Kazandin.SetActive(false);
     }
+
 	
 	public void Sonraki(){
 		Time.timeScale = 1f;
 		seviyeyonetici.seviye2 = true;
-		SceneManager.LoadScene(2);
+		SceneManager.LoadScene(currentSceneIndex+1);
 	}
 	
 	public void AnaMenu(){
@@ -40,16 +43,16 @@ public class kazandin : MonoBehaviour
 	{	
 		if(other.gameObject.tag == "Player")
 		{
-			resim.color = Color.yellow;
+			//resim.color = Color.yellow;
 			Kazandin.SetActive(true);
 			Time.timeScale = 0f;
 			if(PlayerPrefs.GetInt("yildizaldi")==1)
 			{
 				yildiz+=1;
 			}
-			yildiz+=1;
-			PlayerPrefs.SetInt("yildiz",yildiz);
-			Debug.Log(yildiz);
+			//yildiz+=1;
+			//PlayerPrefs.SetInt("yildiz",yildiz);
+			//Debug.Log(yildiz);
 		}
 	}
 }
