@@ -44,19 +44,6 @@ public class Zamanlar : MonoBehaviour
 				}	
 			}
 		}
-		else if(sahne == "level2")
-		{
-			if (zaman > 25f)
-			{
-				// Zaman 30 saniyeden uzunsa resmi kırmızı yap
-				resim.color = Color.red;
-			}
-			else
-			{
-				// Zaman 30 saniyeden kısa ise resmi sarı yap
-				resim.color = Color.yellow;
-			}
-		}
 
         }
 	

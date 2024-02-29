@@ -49,9 +49,17 @@ public class kazandin : MonoBehaviour
 			if(PlayerPrefs.GetInt("yildizaldi")==1)
 			{
 				yildiz+=1;
+				PlayerPrefs.SetInt("yildiz",yildiz);
 			}
-			//yildiz+=1;
-			//PlayerPrefs.SetInt("yildiz",yildiz);
+			if(currentSceneIndex==1 || currentSceneIndex==2 || currentSceneIndex==3 || currentSceneIndex==4)
+			{
+				yildiz+=2;
+				PlayerPrefs.SetInt("yildiz",yildiz);
+			}
+			else{
+				yildiz+=1;
+				PlayerPrefs.SetInt("yildiz",yildiz);
+			}
 			//Debug.Log(yildiz);
 		}
 	}

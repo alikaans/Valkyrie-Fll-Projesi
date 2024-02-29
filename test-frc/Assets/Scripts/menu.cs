@@ -32,6 +32,10 @@ public class menu : MonoBehaviour
 		Debug.Log(SceneManager.GetActiveScene().name);
     }
 	
+	void Update()
+	{
+	}
+	
 	public void HEPSINISIL(){
 		PlayerPrefs.DeleteAll();
 		Debug.Log("Hepsi Silindi");
@@ -214,4 +218,5 @@ public class menu : MonoBehaviour
 		Debug.Log("çıktın");
 		Application.Quit();
 	}
+	
 }

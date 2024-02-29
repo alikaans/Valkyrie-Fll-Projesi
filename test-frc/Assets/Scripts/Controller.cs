@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Controller : MonoBehaviour
 	int yildiz;
 	public GameObject Kazandin;
 	public Image resim;
+	int currentSceneIndex;
     
     MainLoop loop1;
     
@@ -124,6 +126,9 @@ public class Controller : MonoBehaviour
 		float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 		yildiz = PlayerPrefs.GetInt("yildiz");
+		
+		currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+		PlayerPrefs.SetInt("sahne",currentSceneIndex);
 		
         if (isPlaying == 2) //play
         {
@@ -592,6 +597,12 @@ public class ultra : Function_
 			Debug.Log("ultrasonik takılı");
 			if(PlayerPrefs.GetInt("ultrakarsi")==1)
 			{
+				if(PlayerPrefs.GetInt("currentSceneIndex")==6)
+				{
+					int yildiz = PlayerPrefs.GetInt("yildiz");
+					yildiz+=2;
+					PlayerPrefs.SetInt("yildiz",yildiz);
+				}
 				if(PlayerPrefs.GetInt("ultrasonicYakinlik")==1)
 				{
 					if(PlayerPrefs.GetInt("ultrayon")==0)
@@ -690,6 +701,12 @@ public class Renk : Function_
 		Debug.Log(PlayerPrefs.GetInt("renk"));
 		if(PlayerPrefs.GetInt("renk")==1)
 		{
+			if(PlayerPrefs.GetInt("currentSceneIndex")==7 || PlayerPrefs.GetInt("currentSceneIndex")==9)
+			{
+				int yildiz = PlayerPrefs.GetInt("yildiz");
+				yildiz+=2;
+				PlayerPrefs.SetInt("yildiz",yildiz);
+			}
 			Debug.Log("renk sensörü takılı");
 			if(PlayerPrefs.GetInt("rengi")==PlayerPrefs.GetInt("renksecimi"))
 			{
@@ -731,6 +748,12 @@ public class dokunma : Function_
 		if(PlayerPrefs.GetInt("dokunma")==1)
 		{
 			Debug.Log("dokunma takılı");
+			if(PlayerPrefs.GetInt("currentSceneIndex")==8)
+			{
+				int yildiz = PlayerPrefs.GetInt("yildiz");
+				yildiz+=2;
+				PlayerPrefs.SetInt("yildiz",yildiz);
+			}
 			if(PlayerPrefs.GetInt("dokundu")==1)
 			{
 				if(PlayerPrefs.GetInt("dokunyon")==0)
